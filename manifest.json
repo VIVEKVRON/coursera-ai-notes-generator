@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Coursera PDF Notes Generator",
+  "version": "1.0",
+  "description": "Extracts Coursera transcripts and readings to generate AI-summarized PDF notes.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.coursera.org/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Generate Notes"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.coursera.org/*"],
+      "js": ["content.js"]
+    }
+  ]
+}

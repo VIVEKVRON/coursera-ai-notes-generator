@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coursera Study Notes</title>
+    <style>
+    :root { --primary: #0056D2; --bg-color: #f0f2f5; --text-color: #1a1a1a; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.8; font-size: 17px; background-color: var(--bg-color); margin: 0; padding: 40px 20px; color: var(--text-color); }
+    
+    /* The centered action bar */
+    .action-bar { text-align: center; margin-bottom: 30px; }
+    button.pdf-btn { background-color: var(--primary); color: white; border: none; padding: 14px 28px; font-size: 16px; font-weight: bold; border-radius: 8px; cursor: pointer; box-shadow: 0 4px 6px rgba(0,86,210,0.3); transition: all 0.2s; }
+    button.pdf-btn:hover { background-color: #0043A4; transform: translateY(-2px); }
+    
+    /* The Document Container */
+    .document { max-width: 800px; margin: 0 auto; background: #ffffff; padding: 60px 80px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; }
+    
+    h1, h2, h3 { color: var(--primary); border-bottom: 2px solid #eef1f6; padding-bottom: 8px; margin-top: 1.8em; margin-bottom: 0.8em; line-height: 1.3; }
+    h1 { margin-top: 0; font-size: 2.4em; }
+    strong { color: #000000; font-weight: 700; }
+    
+    /* Safely styled bullets */
+    .bullet { margin-left: 20px; color: var(--primary); font-weight: bold; }
+    hr { border: 0; border-top: 2px dashed #eef1f6; margin: 30px 0; }
+    
+    code { background: #f8f9fa; padding: 3px 6px; border-radius: 4px; font-family: 'Consolas', monospace; color: #b31d28; border: 1px solid #e1e4e8; font-size: 0.9em; }
+    pre { background: #202124; color: #e8eaed; padding: 20px; border-radius: 8px; overflow-x: auto; font-family: 'Consolas', monospace; margin: 25px 0; }
+    pre code { background: transparent; color: inherit; padding: 0; border: none; }
+    
+    /* --- THE FIX: BULLETPROOF PDF MARGINS --- */
+    @media print { 
+      body { background-color: white !important; padding: 0; margin: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; } 
+      /* We force the document itself to have a 1-inch padding padding, ignoring Chrome's margin settings */
+      .document { box-shadow: none; padding: 1in !important; max-width: 100%; margin: 0; box-sizing: border-box; } 
+      .action-bar { display: none; } 
+      pre, code { page-break-inside: avoid; }
+      h1, h2, h3 { page-break-after: avoid; }
+    }
+
+  </style>
+
+</head>
+<body>
+  
+  <div class="action-bar">
+    <button id="printBtn" class="pdf-btn">Download as PDF</button>
+  </div>
+  
+  <div class="document" id="noteContent">
+    </div>
+
+  <script src="notes.js"></script>
+</body>
+</html>
